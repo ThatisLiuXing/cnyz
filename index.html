@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>湖南省常宁市第一中学 - 百年名校</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1a3d5c;
+            --accent-gold: #c9a961;
+            --text-dark: #2c2c2c;
+            --text-gray: #666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.7;
+            background: var(--bg-light);
+        }
+
+        /* 导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            margin-top: 70px;
+            height: 75vh;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #2d5a7b 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(201, 169, 97, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            animation: drift 15s ease-in-out infinite;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-tag {
+            font-size: 0.95rem;
+            letter-spacing: 8px;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: 10px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            letter-spacing: 5px;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .motto-box {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            border: 2px solid var(--accent-gold);
+            border-radius: 50px;
+            margin-top: 1.5rem;
+        }
+
+        .motto {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 15px;
+            color: var(--accent-gold);
+        }
+
+        /* 统计数据 */
+        .stats-bar {
+            background: white;
+            padding: 3rem 2rem;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* 内容区域 */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* 学校介绍 */
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            line-height: 2;
+            color: var(--text-gray);
+        }
+
+        .intro-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-highlight {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #2d5a7b 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(26, 61, 92, 0.3);
+        }
+
+        .intro-highlight h3 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-gold);
+        }
+
+        .intro-highlight ul {
+            list-style: none;
+        }
+
+        .intro-highlight li {
+            padding: 0.8rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .intro-highlight li::before {
+            content: '▪';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+        }
+
+        /* 历史沿革 */
+        .history-bg {
+            background: linear-gradient(to bottom, var(--bg-light) 0%, white 50%, var(--bg-light) 100%);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-gold);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .timeline-year {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-text {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--accent-gold);
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--accent-gold);
+        }
+
+        /* 荣誉展示 */
+        .honors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .honor-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border-top: 4px solid var(--accent-gold);
+        }
+
+        .honor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .honor-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .honor-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 0.8rem;
+        }
+
+        .honor-desc {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* 联系区域 */
+        .contact-section {
+            background: var(--primary-blue);
+            color: white;
+            padding: 5rem 2rem;
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent-gold);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .qq-groups {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .qq-groups h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--accent-gold);
+        }
+
+        .qq-btn {
+            display: block;
+            width: 100%;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(201, 169, 97, 0.5);
+            border-radius: 15px;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            letter-spacing: 2px;
+        }
+
+        .qq-btn:hover {
+            background: rgba(201, 169, 97, 0.3);
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 页脚 */
+        .footer {
+            background: #0f1e2e;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* 动画 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 响应式 */
+        @media (max-width: 1024px) {
+            .intro-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 80px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+                letter-spacing: 5px;
+            }
+
+            .motto {
+                font-size: 1.3rem;
+                letter-spacing: 8px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">常宁一中</div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#about">学校简介</a></li>
+                <li><a href="#history">历史沿革</a></li>
+                <li><a href="#honors">荣誉展示</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero 区域 -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-tag">Since 1902</div>
+            <h1 class="hero-title">常宁一中</h1>
+            <p class="hero-subtitle">湖南省示范性普通高级中学</p>
+            <div class="motto-box">
+                <div class="motto">博厚 · 高明 · 悠久</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 统计数据 -->
+    <div class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">123</div>
+                <div class="stat-label">建校年数</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4000+</div>
+                <div class="stat-label">在校学生</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">300+</div>
+                <div class="stat-label">教职员工</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">180</div>
+                <div class="stat-label">校园面积（亩）</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50000+</div>
+                <div class="stat-label">培养学子</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 学校简介 -->
+    <section class="section" id="about">
+        <div class="section-header">
+            <div class="section-tag">About Us</div>
+            <h2 class="section-title">学校简介</h2>
+            <p class="section-desc">
+                常宁一中是常宁市唯一的湖南省示范性高级中学，创办于1902年，由清末翰林王良弼倡办
+            </p>
+        </div>
+
+        <div class="intro-content">
+            <div class="intro-text">
+                <p>
+                    常宁市第一中学始称合江学堂，历经县高等小学、县初级中学、县第一初级中学、县第一完全中学、常宁市第一中学等发展阶段。
+                </p>
+                <p>
+                    学校坐落在常宁市区西郊，宜潭二水交汇，谷家一洲镶嵌，钟灵毓秀，得天独厚。现有校园面积180余亩，校舍面积4万多平方米，教学楼、科技园、教研楼、图书馆、学生公寓、体艺馆琼楼玉宇，鳞次栉比。
+                </p>
+                <p>
+                    学校拥有语音室、微机室、实验室、教育信息资源中心（多媒体室、电教中心、校园电视台、广播电台等）等现代化教学设施，装备齐全。
+                </p>
+            </div>
+
+            <div class="intro-highlight">
+                <h3>师资力量</h3>
+                <ul>
+                    <li>教职工300余人</li>
+                    <li>特级教师1人</li>
+                    <li>高级教师50余人</li>
+                    <li>国家级、省级优秀教师及省市骨干教师50人</li>
+                    <li>衡阳市规模最大、实力最强的中学之一</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 历史沿革 -->
+    <section class="section history-bg" id="history">
+        <div class="section-header">
+            <div class="section-tag">History</div>
+            <h2 class="section-title">历史沿革</h2>
+            <p class="section-desc">
+                百余年来，5万多名学子从这里起飞，在广阔的天空翱翔
+            </p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">1902年</div>
+                    <div class="timeline-title">合江学堂创立</div>
+                    <div class="timeline-text">
+                        由清末翰林王良弼倡办，开启常宁现代教育新篇章
+                    </div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">民国时期</div>
+                    <div class="timeline-title">历经变革</div>
+                    <div class="timeline-text">
+                        先后发展为县高等小学、县初级中学、县第一初级中学
+                    </div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">新中国成立后</div>
+                    <div class="timeline-title">蓬勃发展</div>
+                    <div class="timeline-text">
+                        发展为县第一完全中学，办学规模不断扩大，教学质量稳步提升
+                    </div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">现代</div>
+                    <div class="timeline-title">省级示范</div>
+                    <div class="timeline-text">
+                        成为湖南省示范性普通高级中学，是衡阳市规模最大、实力最强的中学之一
+                    </div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+
+        <div style="max-width: 900px; margin: 4rem auto 0; padding: 2.5rem; background: white; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08);">
+            <h3 style="font-family: 'Noto Serif SC', serif; font-size: 1.6rem; color: var(--primary-blue); margin-bottom: 1.5rem; text-align: center;">
+                杰出校友
+            </h3>
+            <p style="color: var(--text-gray); line-height: 2; text-align: center; font-size: 1.05rem;">
+                老一辈革命家、解放军高级将领彭明治，中共中央委员滕文生，著名画家吴国威，导弹专家滕明生等一大批杰出人才，都曾在常宁一中挥写过亮丽的青春。
+            </p>
+        </div>
+ 
